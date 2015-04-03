@@ -43,5 +43,15 @@ module.exports = function(environment) {
 
   }
 
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self' http://api.github.com https://api.github.com",
+    'font-src': "'self'",
+    'connect-src': "'self' http://api.github.com https://api.github.com",
+    'img-src': "'self' https://avatars.githubusercontent.com",
+    'style-src': "'self' 'unsafe-inline'",
+    'media-src': "'self'"
+  };
+
   return ENV;
 };

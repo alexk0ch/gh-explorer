@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12">
+    <p class="lead">
+      This is the Github explorer for all of our favourite devs. 
+    </p>
+    <ul>
+      {{#each dev in model}}
+      <li>
+      {{#link-to 'user' dev.login}}
+        {{dev.name}}
+      {{/link-to}}
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>    
+{{outlet}}
