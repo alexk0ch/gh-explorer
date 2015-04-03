@@ -7,8 +7,8 @@ var Router = Ember.Router.extend({
 
 export default Router.map(function() {
   this.resource('application.index', { path: '/' });
-  this.resource('user', {path: '/users/:login'}, function() {
-    this.route('loading');
+  this.resource('user', {path: '/users/:login'}, function () {
+    this.route('repositories');
   });
 });
  

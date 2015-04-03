@@ -1,15 +1,13 @@
 <div class="row">  
-    <div class="col-md-2">
-
+    
+  <div class="col-md-2">
+    <div class="panel panel-default">
       <div class="dev-detail clearfix">
         {{#link-to 'user' model}}
           <img class="dev-photo" {{bind-attr src=model.avatar_url}} alt="">
         {{/link-to}}
-        
         <h4>
-          {{#link-to 'user' model}}
-            {{model.name}}
-          {{/link-to}}
+          {{#link-to 'user' model}}{{model.name}}{{/link-to}}
           <br>
           <small>{{model.company}}</small>
           <br>
@@ -17,16 +15,28 @@
           <br>
           <small>{{model.email}}</small>
         </h4>
-
-      </div>
-      
+      </div>    
       <div class="dev-links small">
-        <a href="#">Followers<span class="badge">{{model.followers}}</span></a>
-        <a href="#">Repos<span class="badge">{{model.public_repos}}</span></a>
-        <a href="#">Gists<span class="badge">{{model.public_gists}}</span></a>
+        <table class="table table-striped">
+          <tr>
+            <td>Followers</td>
+            <td><span class="badge">{{model.followers}}</span></td>
+          </tr>
+          <tr>
+            <td>Repos</td>
+            <td><span class="badge">{{model.public_repos}}</span></td>
+          </tr>
+          <tr>
+            <td>Gists</td>
+            <td><span class="badge">{{model.public_gists}}</span></td>
+          </tr>
+        </table>
       </div>
-
     </div>
+  </div>
+
+  <div class="col-md-10">
+    {{outlet}}    
+  </div>
 
 </div>
-{{outlet}}

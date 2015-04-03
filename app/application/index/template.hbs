@@ -1,17 +1,20 @@
 <div class="row">
   <div class="col-md-12">
     <p class="lead">
-      This is the Github explorer for all of our favourite devs. 
+      This is the Github explorer for all of the top devs. 
     </p>
-    <ul>
+    <div class="row heroes">
       {{#each dev in model}}
-      <li>
-      {{#link-to 'user' dev.login}}
-        {{dev.name}}
-      {{/link-to}}
-      </li>
+      <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 text-center">
+        {{#link-to 'user' dev.login}}
+          <img {{bind-attr src=dev.avatar_url}} class="dev-photo" alt="">
+        {{/link-to}}
+        {{#link-to 'user' dev.login}}
+          {{dev.login}}
+        {{/link-to}}
+      </div>
       {{/each}}
-    </ul>
+    </div>
   </div>
 </div>    
 {{outlet}}

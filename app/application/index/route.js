@@ -1,17 +1,9 @@
 import Ember from 'ember';
 
-const devs = [
-  { login: "robconery", name: "Rob Conery" },
-  { login: "shanselman", name: "Scott Hanselman" },
-  { login: "tomdale", name: "Tom Dale" },
-  { login: "wycats", name: "Yehuda Katz" },
-  { login: "jongalloway", name: "John Galloway" },
-  { login: "haacked", name: "Phil Haack" }
-];
-
 export default Ember.Route.extend({
   model () {
-    return devs;
+    return Ember.$.getJSON('https://api.github.com/search/users?q=followers:%3E255+sort:followers&page=0')
+      .then((data)=> { return data.items })
   },
 
   afterModel: function (userModel) {
