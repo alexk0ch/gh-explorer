@@ -1,9 +1,26 @@
-<div class="row">
+<div class="list-group">
   {{#each repo in model}}
-    <div class="col-md-4">
-    {{repo.name}}  
-    </div>  
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">
+        {{repo.name}}
+        <small class="badge">{{repo.language}}</small>
+      </h4>
+      <p class="list-group-item-text">
+        <div class="row">
+          <div class="col-md-8">
+            {{repo.description}}
+          </div>
+          <div class="col-md-2">
+            <span><b>Created</b> <small>{{repo.created_at}}</small></span>
+          </div>
+          <div class="col-md-2">
+            <span><b>Updated</b> <small>{{repo.created_at}}</small></span>
+          </div>
+            
+        </div>
+      </p>
+    </a>      
   {{/each}}
 </div>
-
 {{outlet}}
+
